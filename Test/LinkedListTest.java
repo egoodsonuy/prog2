@@ -1,6 +1,6 @@
 package uy.edu.um.prog2.adt.LinkedList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import uy.edu.um.prog2.adt.LinkedList;
 
 public class LinkedListTest {
