@@ -1,4 +1,3 @@
-package uy.edu.um.prog2.adt.Heap;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
