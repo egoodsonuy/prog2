@@ -1,7 +1,9 @@
 
 
 import org.junit.jupiter.api.Test;
-import uy.edu.um.prog2.adt.LinkedList;
+import uy.edu.um.prog2.adt.LinkedList.MyList;
+import uy.edu.um.prog2.adt.LinkedList.MyLinkedList;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LinkedListTest {
     @Test

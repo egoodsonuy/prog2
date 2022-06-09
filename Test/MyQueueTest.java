@@ -1,6 +1,6 @@
 
 import org.junit.jupiter.api.Test;
-import LinkedList.src.uy.edu.um.prog2.adt.Queue,MyQueue;
+import LinkedList.src.uy.edu.um.prog2.adt.Queue.MyQueue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MyQueueTest {

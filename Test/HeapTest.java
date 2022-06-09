@@ -1,5 +1,7 @@
 
 import org.junit.jupiter.api.Test;
+import LinkedList.src.uy.edu.um.prog2.adt.Heap.MyHeap;
+import LinkedList.src.uy.edu.um.prog2.adt.Heap.MyHeapImpl;
 import static org.junit.jupiter.api.Assertions.*;
 
 

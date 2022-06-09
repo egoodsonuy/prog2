@@ -1,7 +1,10 @@
 
 
 import org.junit.jupiter.api.Test;
-import uy.edu.um.prog2.adt.BinaryTree;
+import LinkedList.src.uy.edu.um.prog2.adt.BinaryTree.MySearchBinaryTree;
+import LinkedList.src.uy.edu.um.prog2.adt.BinaryTree.MyBinarySearchTreeImpl;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SearchBinaryTreeTest {
 
