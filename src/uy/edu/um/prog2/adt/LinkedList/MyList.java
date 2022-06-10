@@ -1,4 +1,4 @@
-package uy.edu.um.prog2.adt.LinkedList;
+package LinkedList.src.uy.edu.um.prog2.adt.LinkedList;
 
 public interface MyList<T> {
     void add(T value);

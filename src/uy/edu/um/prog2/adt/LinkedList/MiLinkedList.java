@@ -1,4 +1,6 @@
-package uy.edu.um.prog2.adt.LinkedList;
+package LinkedList.src.uy.edu.um.prog2.adt.LinkedList;
+import LinkedList.src.uy.edu.um.prog2.adt.LinkedList.MyList;
+import LinkedList.src.uy.edu.um.prog2.adt.LinkedList.Node;
 
 public class MiLinkedList<T> implements MyList<T> {
 
@@ -90,6 +92,16 @@ public class MiLinkedList<T> implements MyList<T> {
                 inicio++;
             }
             Temp.setNext(Temp.getNext().getNext());
+        }
+
+        public T removeLast(){
+            T valueToRemove = null;
+            if (this.last != null) {
+                valueToRemove = this.last.getValue();
+                remove(valueToRemove);
+            }
+            return valueToRemove;
+
         }
 
         @Override

@@ -44,4 +44,76 @@ public class Node<K extends Comparable<K>, V> {
     public void setRight(Node<K, V> right) {
         this.right = right;
     }
+
+
+    public void add(K key, V value) {
+        Node<K, V> elementToAdd = new Node<>(key, value);
+        if (key.compareTo(this.key) > 0) {
+
+            if (right == null) {
+
+                right = elementToAdd;
+            } else {
+
+                right.add(key, value);
+            }
+
+        } else {
+
+            if (left == null) {
+
+                left = elementToAdd;
+            } else {
+
+                left.add(key, value);
+            }
+        }
+
+    }
+
+    public Node<K, V> findMin() {
+        Node<K, V> Return = this;
+        if (left != null) {
+
+            Return = left.findMin();
+        }
+
+        return Return;
+    }
+
+    public Node<K, V> delete(K key) {
+        Node<K, V> elementToReturn = this;
+        if (key.compareTo(this.key) > 0) {
+
+            if (right != null) {
+
+                right = right.delete(key);
+            }
+
+        } else if (key.compareTo(this.key) < 0) {
+
+            if (left != null) {
+
+                left = left.delete(key);
+            }
+        } else if (left != null && right != null) {
+
+            // Encontre el elemento a eliminar
+            Node<K, V> min = right.findMin();
+            this.key = min.getKey();
+            this.value = min.getValue();
+            right = right.delete(min.getKey());
+        } else {
+
+            if (left != null) {
+
+                elementToReturn = left;
+            } else {
+
+                elementToReturn = right;
+            }
+        }
+        return elementToReturn;
+    }
+
 }

@@ -1,9 +1,9 @@
-package uy.edu.um.prog2.adt.LinkedList;
+package LinkedList.src.uy.edu.um.prog2.adt.LinkedList;
 
 public class Node<T> {
     private T value;
-    private Node<T> next;
-    private Node<T> prev;
+    public Node<T> next;
+    public Node<T> prev;
 
     public Node(T value) {
         this.value = value;

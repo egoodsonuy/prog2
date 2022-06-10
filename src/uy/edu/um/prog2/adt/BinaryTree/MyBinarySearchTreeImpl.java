@@ -14,9 +14,9 @@ public class MyBinarySearchTreeImpl<K extends Comparable<K>, V> implements MySea
         }
     }
 
-    private Node<K, V> delete(P key, Node<K, V> root) {
+    private Node<K, V> delete(K P, Node<K, V> root) {
         Node<K, V> result = root;
-        if (root.getKey().compareTo(p) == 0) {
+        if (root.getKey().compareTo(P) == 0) {
             if (root.getLeft() == null && root.getRight() == null) {
                 result = null;
             } else if (root.getLeft() == null) {
@@ -29,10 +29,10 @@ public class MyBinarySearchTreeImpl<K extends Comparable<K>, V> implements MySea
                 root.setValue(min.getValue());
                 root.setLeft(delete(min.getKey(), root.getLeft()));
             }
-        } else if (p.compareTo(root.getKey()) > 0) {
-            root.setRight(delete(p, root.getRight()));
+        } else if (P.compareTo(root.getKey()) > 0) {
+            root.setRight(delete(P, root.getRight()));
         } else {
-            root.setLeft(delete(p, root.getLeft()));
+            root.setLeft(delete(P, root.getLeft()));
         }
         return result;
     }

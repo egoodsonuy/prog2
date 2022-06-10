@@ -10,8 +10,8 @@ public class MyHeapImpl<T extends Comparable<T>> implements MyHeap<T> {
     public MyHeapImpl(T[] values, boolean heapMax, boolean heapMin) {
         this.values = values;
         this.lastValuePosition = 0;
-        this.heapMax = heapMax;
-        this.heapMin = heapMin;
+        this.isHeapMax = heapMax;
+        this.isHeapMin = heapMin;
     }
 
 
@@ -45,7 +45,7 @@ public class MyHeapImpl<T extends Comparable<T>> implements MyHeap<T> {
         this.values[lastValuePosition] = value;
         int valuePos = lastValuePosition;
         lastValuePosition++;
-        if (heapMax == true) {
+        if (isHeapMax == true) {
             while (valuePos != 0 && value.compareTo(getFather(valuePos))>0){
                 T change = getFather(valuePos);
                 this.values[getFatherPosition(valuePos)]=value;
@@ -53,7 +53,7 @@ public class MyHeapImpl<T extends Comparable<T>> implements MyHeap<T> {
                 valuePos = getFatherPosition(valuePos);
             }
         }
-        if (heapMin==true) {
+        if (isHeapMin==true) {
             while (valuePos!=0 && value.compareTo(getFather(valuePos))<0){
                 T change = getFather(valuePos);
                 this.values[getFatherPosition(valuePos)]=value;
@@ -70,7 +70,7 @@ public class MyHeapImpl<T extends Comparable<T>> implements MyHeap<T> {
         values[0]=nodo;
         int valuePos = 0;
         lastValuePosition--;
-        if(heapMax==true){
+        if(isHeapMax==true){
             while (getLeftChild(valuePos)!=null && getRightChild(valuePos)!=null){
                 T leftChild = getLeftChild(valuePos);
                 int leftChildPosition = getLeftChildPosition(valuePos);

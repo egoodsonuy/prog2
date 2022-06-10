@@ -1,8 +1,12 @@
 package LinkedList.src.uy.edu.um.prog2.adt.Queue;
 
-import uy.edu.um.prog2.adt.LinkedList.Node;
 
-public class MyQueueImpl<T> implements MyQueue {
+import LinkedList.src.uy.edu.um.prog2.adt.LinkedList.Node;
+import LinkedList.src.uy.edu.um.prog2.adt.LinkedList.MiLinkedList;
+import LinkedList.src.uy.edu.um.prog2.adt.Queue.EmptyQueueException;
+
+
+public class MyQueueImpl<T> implements MyQueue<T> {
     private Node<T> first;
     private Node<T> last;
 
@@ -11,17 +15,18 @@ public class MyQueueImpl<T> implements MyQueue {
         this.last = null;
     }
 
+
     public void enqueue(T value) {
-        Node nuevoNodo = new Node(element);
+        Node nuevoNodo = new Node(value);
         if (first==null){
             first=nuevoNodo;
             last=nuevoNodo;
-            nuevoNodo.Next=null;
+            nuevoNodo.next=null;
         }
         else {
-            last.Next=nuevoNodo;
+            last.next=nuevoNodo;
             last=nuevoNodo;
-            nuevoNodo.Next=null;
+            nuevoNodo.next=null;
         }
     }
 
@@ -32,17 +37,33 @@ public class MyQueueImpl<T> implements MyQueue {
         return removeLast();
     }
 
-    public boolean contains(T value) {
-        boolean contains = false;
-        Node<T> temp = this.first;
-        while (temp != null && !temp.getValue().equals(value)) {
-            temp = temp.getNext();
+
+
+    public void remove(T value) {
+        Node<T> Temp = this.first;
+        while (Temp.getNext() != null && Temp.getValue() != value) {
+            Temp = Temp.getNext();
         }
-        if (temp != null) {
-            contains = true;
+        if (Temp.getValue() == value && Temp.getNext() == null) {
+            Temp = Temp.getPrev();
+            Temp.setNext(null);
+        } else if (Temp.getValue() == value) {
+            Temp = Temp.getPrev();
+            Temp.setNext(Temp.getNext().getNext());
         }
-        return contains;
     }
+
+
+    private T removeLast() {
+        T valueToRemove = null;
+        if (this.last != null) {
+            valueToRemove = this.last.getValue();
+            remove(valueToRemove);
+        }
+        return valueToRemove;
+    }
+
+
 
     public int size() {
         int size = 0;
